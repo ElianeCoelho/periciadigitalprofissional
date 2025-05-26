@@ -1,0 +1,153 @@
+:root {
+  --cor-primaria: #202833;
+  --cor-secundaria: #f5f7fa;
+  --cor-destaque: #f9aa33;
+  --cor-texto: #333;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto);
+}
+
+header {
+  background-color: var(--cor-primaria);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  background-color: var(--cor-primaria);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero button {
+  background-color: var(--cor-destaque);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.sobre,
+.contato {
+  background-color: #eaeff4;
+  padding: 40px 20px;
+  border-radius: 10px;
+}
+
+.sobre-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.sobre-container .imagem-perfil {
+  flex: 0 0 200px;
+  height: auto;
+}
+
+.sobre-container p {
+  flex: 1;
+  min-width: 250px;
+  padding: 50px;
+}
+
+.imagem-perfil {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.sobre h2{
+    text-align: center;
+}
+.servicos {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+.servico {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servico:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+#servicos h2{
+    text-align: center;
+}
+.icone-servico {
+  font-size: 40px;
+  color: var(--cor-destaque);
+  margin-bottom: 10px;
+}
+
+.servico .detalhes {
+  display: none;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.servico:hover .detalhes {
+  display: block;
+}
+
+.contato h2{
+    text-align: center;
+}
+footer {
+  background-color: var(--cor-primaria);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+  .sobre-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

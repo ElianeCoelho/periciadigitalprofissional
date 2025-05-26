@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perícia Digital - Seu Nome</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>Eliane Coelho</h1>
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Confiança, ética e precisião na análise forense digital.</h1>
+        <p>Auxílio técnico e consultoria para advogados, empresas e órgãos judiciais.</p>
+        <a href="https://wa.me/5541996784942?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20uma%20an%C3%A1lise%20forense."
+            target="_blank">
+            <button>Solicitar Análise via WhatsApp</button>
+        </a>
+    </div>
+
+    <section id="sobre" class="sobre">
+        <h2>Sobre Mim</h2>
+        <div class="sobre-container">
+            <img src="euEscritório.png" alt="Foto profissional" class="imagem-perfil">
+            <p>Sou profissional da área de tecnologia com atuação em análise forense digital, oferecendo serviços técnicos e consultoria especializada para empresas, advogados e instituições. Tenho experiência em identificação de evidências, recuperação de dados e apoio a processos judiciais</p>
+        </div>
+    </section>
+
+    <section id="servicos">
+        <h2>Serviços</h2>
+        <div class="servicos">
+            <div class="servico">
+                <i class="fas fa-laptop-code icone-servico"></i>
+                <h3>Análise de Dispositivos</h3>
+                <p>Investigamos evidências em computadores, celulares e redes.</p>
+                <div class="detalhes">Análise técnica em notebooks, PCs e dispositivos móveis para recuperação e validação de provas digitais.</div>
+            </div>
+
+            <div class="servico">
+                <i class="fas fa-database icone-servico"></i>
+                <h3>Recuperação de Dados</h3>
+                <p>Recuperamos arquivos excluídos de mídias danificadas.</p>
+                <div class="detalhes">Técnicas de recuperação avançada para arquivos apagados acidentalmente ou de dispositivos danificados.</div>
+            </div>
+
+            <div class="servico">
+                <i class="fas fa-user-secret icone-servico"></i>
+                <h3>Identificação de Fraudes</h3>
+                <p>Análise de transações e manipulações digitais.</p>
+                <div class="detalhes">Detectamos padrões suspeitos e modificações indevidas em sistemas, bancos de dados e registros digitais.</div>
+            </div>
+
+            <div class="servico">
+                <i class="fas fa-scale-balanced icone-servico"></i>
+                <h3>Consultoria Judicial</h3>
+                <p>Laudos técnicos e apoio a advogados e juízes.</p>
+                <div class="detalhes">Produção de relatórios técnicos com base em evidências digitais, respeitando a cadeia de custódia e as normas jurídicas.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <h2>Contato</h2>
+        <p>Entre em contato por e-mail ou envie uma mensagem pelo formulário abaixo:</p>
+
+        <form id="formulario-contato" action="https://formspree.io/f/manogdla" method="POST">
+            <input type="email" name="email" placeholder="Seu e-mail" required
+                style="width: 100%; padding: 10px; margin: 10px 0;"><br>
+            <textarea name="message" placeholder="Sua mensagem" required
+                style="width: 100%; padding: 10px; height: 100px;"></textarea><br>
+            <button type="submit"
+                style="background-color: var(--cor-destaque); color: white; padding: 10px 20px; border: none; border-radius: 5px;">Enviar</button>
+        </form>
+
+        <p id="mensagem-retorno" style="margin-top: 15px; font-weight: bold;"></p>
+
+        <script>
+            const form = document.getElementById('formulario-contato');
+            const mensagem = document.getElementById('mensagem-retorno');
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const dados = new FormData(form);
+
+                try {
+                    const resposta = await fetch(form.action, {
+                        method: form.method,
+                        body: dados,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (resposta.ok) {
+                        mensagem.textContent = 'Mensagem enviada com sucesso!';
+                        mensagem.style.color = 'green';
+                        form.reset();
+                    } else {
+                        mensagem.textContent = 'Erro ao enviar a mensagem. Tente novamente mais tarde.';
+                        mensagem.style.color = 'red';
+                    }
+                } catch (erro) {
+                    mensagem.textContent = 'Erro de conexão. Verifique sua internet.';
+                    mensagem.style.color = 'red';
+                }
+            });
+        </script>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 - Todos os direitos reservados. Perícia Digital com ética e excelência.</p>
+    </footer>
+</body>
+
+</html>
