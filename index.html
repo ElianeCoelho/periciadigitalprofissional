@@ -73,48 +73,55 @@
         <h2>Contato</h2>
         <p>Entre em contato por e-mail ou envie uma mensagem pelo formulário abaixo:</p>
 
-        <form id="formulario-contato" action="https://formspree.io/f/manogdla" method="POST">
-            <input type="email" name="email" placeholder="Seu e-mail" required
-                style="width: 100%; padding: 10px; margin: 10px 0;"><br>
-            <textarea name="message" placeholder="Sua mensagem" required
-                style="width: 100%; padding: 10px; height: 100px;"></textarea><br>
-            <button type="submit"
-                style="background-color: var(--cor-destaque); color: white; padding: 10px 20px; border: none; border-radius: 5px;">Enviar</button>
-        </form>
+        <form id="formulario-contato" action="https://formsubmit.co/periciadigitalprofissional@gmail.com" method="POST">
+    
+    <input type="email" name="email" placeholder="Seu e-mail" required
+        style="width: 100%; padding: 10px; margin: 10px 0;"><br>
+
+    <textarea name="message" placeholder="Sua mensagem" required
+        style="width: 100%; padding: 10px; height: 100px;"></textarea><br>
+
+    <!-- Esses campos ainda são úteis -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Nova mensagem do site">
+
+    <button type="submit"
+        style="background-color: var(--cor-destaque); color: white; padding: 10px 20px; border: none; border-radius: 5px;">
+        Enviar
+    </button>
+</form>
+
 
         <p id="mensagem-retorno" style="margin-top: 15px; font-weight: bold;"></p>
 
         <script>
-            const form = document.getElementById('formulario-contato');
-            const mensagem = document.getElementById('mensagem-retorno');
+    const form = document.getElementById('formulario-contato');
 
-            form.addEventListener('submit', async function (e) {
-                e.preventDefault();
-                const dados = new FormData(form);
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const dados = new FormData(form);
 
-                try {
-                    const resposta = await fetch(form.action, {
-                        method: form.method,
-                        body: dados,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (resposta.ok) {
-                        mensagem.textContent = 'Mensagem enviada com sucesso!';
-                        mensagem.style.color = 'green';
-                        form.reset();
-                    } else {
-                        mensagem.textContent = 'Erro ao enviar a mensagem. Tente novamente mais tarde.';
-                        mensagem.style.color = 'red';
-                    }
-                } catch (erro) {
-                    mensagem.textContent = 'Erro de conexão. Verifique sua internet.';
-                    mensagem.style.color = 'red';
+        try {
+            const resposta = await fetch(form.action, {
+                method: form.method,
+                body: dados,
+                headers: {
+                    'Accept': 'application/json'
                 }
             });
-        </script>
+
+            if (resposta.ok) {
+                // Redireciona para a página de obrigado
+                window.location.href = "obrigado.html";
+            } else {
+                alert('Erro ao enviar a mensagem. Tente novamente mais tarde.');
+            }
+        } catch (erro) {
+            alert('Erro de conexão. Verifique sua internet.');
+        }
+    });
+</script>
+
     </section>
 
     <footer>
