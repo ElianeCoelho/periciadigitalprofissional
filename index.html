@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perícia Digital - Seu Nome</title>
+    <title>Perícia Digital - Eliane Coelho</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
@@ -145,23 +145,29 @@
         <h2>Contato</h2>
 <p>Disponível para consultas e esclarecimentos técnicos. Envie sua mensagem:</p>
 
-        <form id="formulario-contato" action="https://formsubmit.co/periciadigitalprofissional@gmail.com" method="POST">
+      
+        <form action="https://formsubmit.co/periciadigitalprofissional@gmail.com" method="POST">
+  <!-- Campos visíveis -->
+  <input type="email" name="email" placeholder="Seu e-mail" required
+         style="width: 100%; padding: 10px; margin: 10px 0;"><br>
+  <textarea name="message" placeholder="Sua mensagem" required
+            style="width: 100%; padding: 10px; height: 100px;"></textarea><br>
 
-            <input type="email" name="email" placeholder="Seu e-mail" required
-                style="width: 100%; padding: 10px; margin: 10px 0;"><br>
+  <!-- Configurações do FormSubmit -->
+  <input type="hidden" name="_subject" value="Nova mensagem do site">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://SEU-DOMINIO/obrigado.html">
 
-            <textarea name="message" placeholder="Sua mensagem" required
-                style="width: 100%; padding: 10px; height: 100px;"></textarea><br>
+  <!-- Honeypot anti-spam (não remova) -->
+  <input type="text" name="_honey" style="display:none">
 
-            <!-- Esses campos ainda são úteis -->
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="Nova mensagem do site">
+  <button type="submit"
+    style="background-color: var(--cor-destaque); color: white; padding: 10px 20px; border: none; border-radius: 5px;">
+    Enviar
+  </button>
+</form>
 
-            <button type="submit"
-                style="background-color: var(--cor-destaque); color: white; padding: 10px 20px; border: none; border-radius: 5px;">
-                Enviar
-            </button>
-        </form>
 
 
         <p id="mensagem-retorno" style="margin-top: 15px; font-weight: bold;"></p>
