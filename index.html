@@ -213,58 +213,61 @@
         </div>
     </footer>
 
-    <script>
-        (function () {
-            const wrap = document.getElementById('contador-wrap');
-            const img = document.getElementById('contador-img');
+  <script>
+(function () {
+    const wrap = document.getElementById('contador-wrap');
+    const img = document.getElementById('contador-img');
 
-            // 1) Tenta badge por imagem (não usa JS externo; raramente bloqueado)
-            img.src =
-                'https://hits.seeyoufarm.com/api/count/incr/badge.svg'
-                + '?url=periciadigitalprofissional.com.br'
-                + '&count_bg=%23f9aa33'
-                + '&title_bg=%23202833'
-                + '&title=Visitas'
-                + '&edge_flat=false';
-            img.height = 28;
+    // 1) Tenta badge por imagem (não usa JS externo; raramente bloqueado)
+    img.src =
+        'https://hits.seeyoufarm.com/api/count/incr/badge.svg'
+        + '?url=periciadigitalprofissional.com.br'
+        + '&count_bg=%23f9aa33'
+        + '&title_bg=%23202833'
+        + '&title=Visitas'
+        + '&edge_flat=false';
+    img.height = 28;
 
-            // Se a imagem falhar, tenta CountAPI (JSON)
-            img.onerror = async function () {
+    // Se a imagem falhar, tenta CountAPI (JSON)
+    img.onerror = async function () {
+        try {
+            // tenta /update (incrementa +1)
+            const r1 = await fetch('https://api.countapi.xyz/update/periciadigitalprofissional.com.br/visitas?amount=1', {
+                headers: { 'Accept': 'application/json' },
+                cache: 'no-store'
+            });
+            if (!r1.ok) throw new Error('HTTP ' + r1.status);
+            const d1 = await r1.json();
+            wrap.innerHTML = '<span class="contador">👥 Visitas: ' + d1.value + '</span>';
+
+        } catch (e1) {
+            // tenta /hit (alguns bloqueadores deixam)
+            try {
+                const r2 = await fetch('https://api.countapi.xyz/hit/periciadigitalprofissional.com.br/visitas', {
+                    headers: { 'Accept': 'application/json' },
+                    cache: 'no-store'
+                });
+                if (!r2.ok) throw new Error('HTTP ' + r2.status);
+                const d2 = await r2.json();
+                wrap.innerHTML = '<span class="contador">👥 Visitas: ' + d2.value + '</span>';
+
+            } catch (e2) {
+                // 3) Fallback local (por navegador) para não ficar vazio
                 try {
-                    // tenta /update (incrementa +1)
-                    const r1 = await fetch('https://api.countapi.xyz/update/periciadigitalprofissional.com.br/visitas?amount=1', {
-                        headers: { 'Accept': 'application/json' },
-                        cache: 'no-store'
-                    });
-                    if (!r1.ok) throw new Error('HTTP ' + r1.status);
-                    const d1 = await r1.json();
-                    wrap.innerHTML = '<span class="contador">👥 Visitas: ' + d1.value + '</span>';
+                    const key = 'contador_local_visitas';
+                    const atual = parseInt(localStorage.getItem(key) || '0', 10) + 1;
+                    localStorage.setItem(key, String(atual));
+                    wrap.innerHTML = '<span class="contador">👥 Visitas: ' + atual + '</span>';
 
-                } catch (e1) {
-                    // tenta /hit (alguns bloqueadores deixam)
-                    try {
-                        const r2 = await fetch('https://api.countapi.xyz/hit/periciadigitalprofissional.com.br/visitas', {
-                            headers: { 'Accept': 'application/json' },
-                            cache: 'no-store'
-                        });
-                        if (!r2.ok) throw new Error('HTTP ' + r2.status);
-                        const d2 = await r2.json();
-                        wrap.innerHTML = '<span class="contador">👁️ Total de visitas: ' + d2.value + '</span>';
-                    } catch (e2) {
-                        // 3) Fallback local (por navegador) para não ficar vazio
-                        try {
-                            const key = 'contador_local_visitas';
-                            const atual = parseInt(localStorage.getItem(key) || '0', 10) + 1;
-                            localStorage.setItem(key, String(atual));
-                            wrap.innerHTML = '<span class="contador">👁️ Visitas (local): ' + atual + '</span>';
-                        } catch (e3) {
-                            wrap.innerHTML = '<span class="contador">contador indisponível</span>';
-                        }
-                    }
+                } catch (e3) {
+                    wrap.innerHTML = '<span class="contador">contador indisponível</span>';
                 }
-            };
-        })();
-    </script>
+            }
+        }
+    };
+})();
+</script>
+
 
 
 </body>
