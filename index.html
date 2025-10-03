@@ -204,7 +204,24 @@
 
     <footer>
         <p>&copy; 2025 - Todos os direitos reservados. Perícia Digital com ética e excelência.</p>
+        <div id="contador" style="margin-top:10px; font-weight:bold;">
+            Carregando contador...
+        </div>
     </footer>
+
+    <script>
+        async function atualizarContador() {
+            try {
+                // namespace + chave únicos do seu site
+                const resposta = await fetch("https://api.countapi.xyz/hit/periciadigitalprofissional.com.br/visitas");
+                const dados = await resposta.json();
+                document.getElementById("contador").innerText = `Total de visitas: ${dados.value}`;
+            } catch (e) {
+                document.getElementById("contador").innerText = "Não foi possível carregar o contador";
+            }
+        }
+        atualizarContador();
+    </script>
 </body>
 
 </html>

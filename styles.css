@@ -29,7 +29,8 @@ header h1 {
 
 header h1 i {
   font-size: 2.5rem;
-  color: var(--cor-destaque); /* amarelo do site */
+  color: var(--cor-destaque);
+  /* amarelo do site */
 }
 
 h3 {
@@ -63,7 +64,8 @@ header nav a {
 }
 
 header nav a:hover {
-  color: var(--cor-destaque); /* muda para o amarelo ao passar o mouse */
+  color: var(--cor-destaque);
+  /* muda para o amarelo ao passar o mouse */
 }
 
 
@@ -124,9 +126,11 @@ section {
   border-radius: 50%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.sobre h2{
-    text-align: center;
+
+.sobre h2 {
+  text-align: center;
 }
+
 .servicos {
   display: flex;
   justify-content: space-around;
@@ -153,9 +157,10 @@ section {
   z-index: 2;
 }
 
-#servicos h2{
-    text-align: center;
+#servicos h2 {
+  text-align: center;
 }
+
 .icone-servico {
   font-size: 40px;
   color: var(--cor-destaque);
@@ -173,9 +178,10 @@ section {
   display: block;
 }
 
-.contato h2{
-    text-align: center;
+.contato h2 {
+  text-align: center;
 }
+
 footer {
   background-color: var(--cor-primaria);
   color: white;
@@ -246,13 +252,16 @@ footer {
   text-align: center;
   padding: 100px 20px;
 }
+
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
+
 .hero p {
   font-size: 1.2rem;
 }
+
 .btn-whatsapp {
   background-color: var(--cor-destaque);
   color: white;
@@ -262,14 +271,24 @@ footer {
   font-weight: bold;
   display: inline-block;
 }
+
 .btn-whatsapp:hover {
-  background-color: #e6992d; /* tom mais escuro para hover */
+  background-color: #e6992d;
+  /* tom mais escuro para hover */
   color: white;
 }
 
 /* ---------- SOBRE (layout novo) ---------- */
-.sobre { background: #f4f7fb; border-radius: 16px; padding: 48px 28px; }
-.sobre h2 { text-align: center; margin-bottom: 28px; }
+.sobre {
+  background: #f4f7fb;
+  border-radius: 16px;
+  padding: 48px 28px;
+}
+
+.sobre h2 {
+  text-align: center;
+  margin-bottom: 28px;
+}
 
 .sobre-card {
   display: grid;
@@ -279,12 +298,16 @@ footer {
   background: #fff;
   border-radius: 16px;
   padding: 28px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
 }
 
 .sobre-col.esquerda {
-  display: flex; flex-direction: column; align-items: center; gap: 16px;
-  position: sticky; top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 16px;
 }
 
 
@@ -302,26 +325,42 @@ footer {
 
 
 .imagem-perfil.grande {
-  width: 180px; height: 180px; object-fit: cover;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
   border: 4px solid var(--cor-secundaria);
 }
 
 .sobre-badges {
-  list-style: none; padding: 0; margin: 4px 0 0 0;
-  display: grid; gap: 10px; width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0 0;
+  display: grid;
+  gap: 10px;
+  width: 100%;
 }
+
 .sobre-badges li {
-  display: flex; align-items: center; gap: 10px;
-  background: #f2f5f9; border-radius: 10px; padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f2f5f9;
+  border-radius: 10px;
+  padding: 10px 12px;
   font-size: .95rem;
 }
-.sobre-badges i { color: var(--cor-destaque); }
+
+.sobre-badges i {
+  color: var(--cor-destaque);
+}
 
 .btn-primario {
-  display: block;           /* ocupa toda a largura */
-  width: 100%;              /* mesmo tamanho dos badges */
+  display: block;
+  /* ocupa toda a largura */
+  width: 100%;
+  /* mesmo tamanho dos badges */
   text-align: center;
   background: var(--cor-destaque);
   color: #fff;
@@ -330,89 +369,207 @@ footer {
   border-radius: 10px;
   font-weight: 700;
   transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-  box-sizing: border-box;   /* garante alinhamento certinho */
+  box-sizing: border-box;
+  /* garante alinhamento certinho */
 }
+
 .btn-primario:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 18px rgba(0,0,0,.08);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, .08);
   background: #e6992d;
 }
 
 /* Coluna direita */
-.sobre-subtitulo { margin-top: 4px; color: var(--cor-primaria); }
+.sobre-subtitulo {
+  margin-top: 4px;
+  color: var(--cor-primaria);
+}
 
 .sobre-destaques {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 18px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 18px 0;
 }
+
 .destaque {
-  display: grid; grid-template-columns: 36px 1fr; gap: 10px;
-  padding: 14px; border: 1px solid #e8edf3; border-radius: 12px; background: #fafcff;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid #e8edf3;
+  border-radius: 12px;
+  background: #fafcff;
 }
-.destaque i { font-size: 22px; color: var(--cor-destaque); margin-top: 2px; }
-.destaque p { margin: 4px 0 0 0; color: #555; font-size: .95rem; }
+
+.destaque i {
+  font-size: 22px;
+  color: var(--cor-destaque);
+  margin-top: 2px;
+}
+
+.destaque p {
+  margin: 4px 0 0 0;
+  color: #555;
+  font-size: .95rem;
+}
 
 .sobre-lista {
-  list-style: none; padding: 0; margin: 8px 0 16px 0; display: grid; gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 16px 0;
+  display: grid;
+  gap: 8px;
 }
-.sobre-lista li { display: flex; gap: 10px; align-items: start; }
-.sobre-lista i { color: #28a745; margin-top: 4px; }
+
+.sobre-lista li {
+  display: flex;
+  gap: 10px;
+  align-items: start;
+}
+
+.sobre-lista i {
+  color: #28a745;
+  margin-top: 4px;
+}
 
 .sobre-metricas {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 8px;
 }
+
 .m-item {
   background: linear-gradient(180deg, #ffffff, #f7f9fc);
-  border: 1px solid #e9eef5; border-radius: 14px; padding: 14px;
+  border: 1px solid #e9eef5;
+  border-radius: 14px;
+  padding: 14px;
   text-align: center;
 }
-.m-numero { display: block; font-size: 1.6rem; font-weight: 800; color: var(--cor-primaria); }
-.m-legenda { font-size: .9rem; color: #666; }
+
+.m-numero {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--cor-primaria);
+}
+
+.m-legenda {
+  font-size: .9rem;
+  color: #666;
+}
 
 /* Integração com seu estilo existente */
-.sobre-container { display:none; } /* esconde o layout antigo, se ainda existir */
+.sobre-container {
+  display: none;
+}
+
+/* esconde o layout antigo, se ainda existir */
 
 /* Responsivo */
 @media (max-width: 980px) {
-  .sobre-card { grid-template-columns: 1fr; }
-  .sobre-col.esquerda { position: initial; }
-  .sobre-destaques { grid-template-columns: 1fr; }
-  .sobre-metricas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sobre-card {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre-col.esquerda {
+    position: initial;
+  }
+
+  .sobre-destaques {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre-metricas {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
+
 @media (max-width: 600px) {
-  .m-numero { font-size: 1.4rem; }
+  .m-numero {
+    font-size: 1.4rem;
+  }
 }
 
 
 
 
 /* ----- Sobre (Opção A compacta) ----- */
-.sobre-compacta .sobre-card { padding: 22px; gap: 22px; }
-.sobre-compacta .sobre-subtitulo { margin-bottom: 6px; }
-.sobre-compacta .sobre-badges li { padding: 8px 10px; font-size: .92rem; }
-.sobre-compacta .imagem-perfil.grande { width: 160px; height: 160px; }
+.sobre-compacta .sobre-card {
+  padding: 22px;
+  gap: 22px;
+}
+
+.sobre-compacta .sobre-subtitulo {
+  margin-bottom: 6px;
+}
+
+.sobre-compacta .sobre-badges li {
+  padding: 8px 10px;
+  font-size: .92rem;
+}
+
+.sobre-compacta .imagem-perfil.grande {
+  width: 160px;
+  height: 160px;
+}
 
 /* Destaques: 2 colunas */
-.sobre-destaques.dois { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.sobre-destaques.dois {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
 
 
 
 /* Métricas em faixa separada e leve */
-.sobre-metricas.faixa { 
-  margin-top: 16px; background: #fff; border: 1px solid #eef2f7; 
-  border-radius: 12px; padding: 10px; 
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+.sobre-metricas.faixa {
+  margin-top: 16px;
+  background: #fff;
+  border: 1px solid #eef2f7;
+  border-radius: 12px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
-.sobre-metricas.faixa .m-item { padding: 10px; text-align:center; border-radius: 12px; border: 1px solid #e9eef5; background: linear-gradient(180deg,#fff,#f7f9fc); }
-.sobre-metricas.faixa .m-numero { font-size: 1.4rem; font-weight: 800; color: var(--cor-primaria); }
-.sobre-metricas.faixa .m-legenda { font-size: .9rem; color: #666; }
+
+.sobre-metricas.faixa .m-item {
+  padding: 10px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid #e9eef5;
+  background: linear-gradient(180deg, #fff, #f7f9fc);
+}
+
+.sobre-metricas.faixa .m-numero {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--cor-primaria);
+}
+
+.sobre-metricas.faixa .m-legenda {
+  font-size: .9rem;
+  color: #666;
+}
 
 /* Responsivo */
 @media (max-width: 980px) {
-  .sobre-destaques.dois { grid-template-columns: 1fr; }
-  .sobre-metricas.faixa { grid-template-columns: 1fr 1fr 1fr; }
+  .sobre-destaques.dois {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre-metricas.faixa {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
+
 @media (max-width: 640px) {
-  .sobre-metricas.faixa { grid-template-columns: 1fr; }
+  .sobre-metricas.faixa {
+    grid-template-columns: 1fr;
+  }
 }
 
 
@@ -424,6 +581,7 @@ footer {
   align-items: center;
   margin: 12px 0 8px;
 }
+
 .sobre-icons span {
   display: inline-flex;
   align-items: center;
@@ -435,26 +593,40 @@ footer {
   font-size: .95rem;
   color: #333;
 }
-.sobre-icons i { color: var(--cor-destaque); }
+
+.sobre-icons i {
+  color: var(--cor-destaque);
+}
+
 @media (max-width: 680px) {
-  .sobre-icons { grid-template-columns: 1fr; justify-items: start; }
+  .sobre-icons {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
 }
 
 /* Opcional: elimine o estilo antigo dos cards, se quiser enxugar */
-.sobre-destaques, .destaque { display: none; }
+.sobre-destaques,
+.destaque {
+  display: none;
+}
 
 
 /* Ajuste do formulário */
 .contato form {
-  max-width: 100%;        /* ocupa toda a largura da seção */
+  max-width: 100%;
+  /* ocupa toda a largura da seção */
   width: 100%;
-  padding: 0 20px;        /* dá um respiro nas laterais */
-  box-sizing: border-box; /* inclui padding na largura total */
+  padding: 0 20px;
+  /* dá um respiro nas laterais */
+  box-sizing: border-box;
+  /* inclui padding na largura total */
 }
 
 .contato input[type="email"],
 .contato textarea {
-  width: 100%;            /* ocupa toda a largura do form */
+  width: 100%;
+  /* ocupa toda a largura do form */
   display: block;
   font-size: 1rem;
   border: 1px solid #ccc;
@@ -466,7 +638,8 @@ footer {
 
 .contato button {
   display: block;
-  width: 100%;            /* botão do mesmo tamanho que os inputs */
+  width: 100%;
+  /* botão do mesmo tamanho que os inputs */
   background-color: var(--cor-destaque);
   color: #fff;
   font-weight: bold;
@@ -483,7 +656,8 @@ footer {
 
 /* ----- Seção Contato ----- */
 .contato {
-  background-color: #eaeff4;   /* mantém coerência com .sobre */
+  background-color: #eaeff4;
+  /* mantém coerência com .sobre */
   border-radius: 10px;
   padding: 40px 20px;
 }
@@ -495,12 +669,26 @@ footer {
 }
 
 .contato p {
-  text-align: center;          /* centraliza o texto acima do form */
+  text-align: center;
+  /* centraliza o texto acima do form */
   font-size: 1rem;
   color: #444;
   margin-bottom: 20px;
-  max-width: 700px;            /* limita largura para não ficar muito espalhado */
+  max-width: 700px;
+  /* limita largura para não ficar muito espalhado */
   margin-left: auto;
   margin-right: auto;
   line-height: 1.5;
+}
+/* Estilo do contador */
+.contador {
+  margin-top: 12px;
+  display: inline-block;
+  background: var(--cor-destaque);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,.15);
 }
