@@ -40,7 +40,7 @@
 
         <div class="sobre-card">
             <div class="sobre-col esquerda">
-                <img src="eu.jpg" alt="Foto de Eliane Coelho" class="imagem-perfil grande">
+                <img src="imagens/eu.jpg" alt="Foto de Eliane Coelho" class="imagem-perfil grande">
 
                 <ul class="sobre-badges">
                     <li><i class="fa-solid fa-shield-halved"></i> Perícia Digital</li>
@@ -203,26 +203,48 @@
 
     </section>
 
-    <footer>
-        <p>&copy; 2025 - Todos os direitos reservados. Perícia Digital com ética e excelência.</p>
-        <div id="contador" style="margin-top:10px; font-weight:bold;">
-            Carregando contador...
-        </div>
-    </footer>
+   <footer>
+  <p>&copy; 2025 - Todos os direitos reservados. Perícia Digital com ética e excelência.</p>
 
-    <script>
-        async function atualizarContador() {
-            try {
-                // namespace + chave únicos do seu site
-                const resposta = await fetch("https://api.countapi.xyz/hit/periciadigitalprofissional.com.br/visitas");
-                const dados = await resposta.json();
-                document.getElementById("contador").innerText = `Total de visitas: ${dados.value}`;
-            } catch (e) {
-                document.getElementById("contador").innerText = "Não foi possível carregar o contador";
-            }
-        }
-        atualizarContador();
-    </script>
+  <!-- Contador -->
+  <div id="contador-wrap" style="margin-top:12px; text-align:center;">
+    <img id="contador-img" alt="contador de visitas" style="vertical-align:middle;">
+  </div>
+</footer>
+
+<script>
+(function () {
+  const origin = location.origin.replace(/\/$/, ''); // ex: https://periciadigitalprofissional.com.br
+  const encoded = encodeURIComponent(origin);
+  const img = document.getElementById('contador-img');
+  // Badge SVG (não precisa JS, mas aqui usamos p/ detectar erro e fazer fallback)
+  img.src =
+    'https://hits.seeyoufarm.com/api/count/incr/badge.svg'
+    + '?url=' + encoded
+    + '&count_bg=%23f9aa33'
+    + '&title_bg=%23202833'
+    + '&title=visitas'
+    + '&edge_flat=false';
+  img.height = 24;
+
+  img.onerror = async function () {
+    // Fallback para texto com CountAPI (pode ser bloqueada por adblock; tentamos mesmo assim)
+    try {
+      const resp = await fetch('https://api.countapi.xyz/update/' + location.hostname + '/visitas?amount=1', {
+        headers: { 'Accept': 'application/json' }, cache: 'no-store'
+      });
+      const data = await resp.json();
+      document.getElementById('contador-wrap').innerHTML =
+        '<span class="contador">👁️ Total de visitas: ' + data.value + '</span>';
+    } catch (e) {
+      document.getElementById('contador-wrap').innerHTML =
+        '<span class="contador">contador indisponível</span>';
+    }
+  };
+})();
+</script>
+
+
 </body>
 
 </html>

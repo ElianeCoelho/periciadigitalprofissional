@@ -680,18 +680,17 @@ footer {
   margin-right: auto;
   line-height: 1.5;
 }
-/* Estilo do contador */
-.contador {
-  margin-top: 12px;
-  display: inline-block;
+.contador{
+  display:inline-block;
   background: var(--cor-destaque);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 0.95rem;
-  box-shadow: 0 3px 8px rgba(0,0,0,.15);
+  color:#fff;
+  padding:8px 16px;
+  border-radius:20px;
+  font-weight:bold;
+  font-size:.95rem;
+  box-shadow:0 3px 8px rgba(0,0,0,.15);
 }
+
 .logo {
   height: 50px;   /* ajusta a altura do logo */
   width: auto;    /* mantém a proporção */
