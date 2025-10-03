@@ -203,46 +203,25 @@
 
     </section>
 
-   <footer>
+  
+
+<footer>
   <p>&copy; 2025 - Todos os direitos reservados. Perícia Digital com ética e excelência.</p>
 
-  <!-- Contador -->
-  <div id="contador-wrap" style="margin-top:12px; text-align:center;">
-    <img id="contador-img" alt="contador de visitas" style="vertical-align:middle;">
+  <!-- Contador de visitas (sem JS, com fallback) -->
+  <div style="margin-top:12px; text-align:center;">
+   <div class="contador-pill">
+  <img
+    alt="contador de visitas"
+    src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=periciadigitalprofissional.com.br&count_bg=%23f9aa33&title_bg=%23202833&title=Visitas&edge_flat=false"
+    height="28">
+</div>
+
   </div>
 </footer>
 
-<script>
-(function () {
-  const origin = location.origin.replace(/\/$/, ''); // ex: https://periciadigitalprofissional.com.br
-  const encoded = encodeURIComponent(origin);
-  const img = document.getElementById('contador-img');
-  // Badge SVG (não precisa JS, mas aqui usamos p/ detectar erro e fazer fallback)
-  img.src =
-    'https://hits.seeyoufarm.com/api/count/incr/badge.svg'
-    + '?url=' + encoded
-    + '&count_bg=%23f9aa33'
-    + '&title_bg=%23202833'
-    + '&title=visitas'
-    + '&edge_flat=false';
-  img.height = 24;
 
-  img.onerror = async function () {
-    // Fallback para texto com CountAPI (pode ser bloqueada por adblock; tentamos mesmo assim)
-    try {
-      const resp = await fetch('https://api.countapi.xyz/update/' + location.hostname + '/visitas?amount=1', {
-        headers: { 'Accept': 'application/json' }, cache: 'no-store'
-      });
-      const data = await resp.json();
-      document.getElementById('contador-wrap').innerHTML =
-        '<span class="contador">👁️ Total de visitas: ' + data.value + '</span>';
-    } catch (e) {
-      document.getElementById('contador-wrap').innerHTML =
-        '<span class="contador">contador indisponível</span>';
-    }
-  };
-})();
-</script>
+
 
 
 </body>

@@ -680,16 +680,19 @@ footer {
   margin-right: auto;
   line-height: 1.5;
 }
-.contador{
-  display:inline-block;
-  background: var(--cor-destaque);
-  color:#fff;
-  padding:8px 16px;
-  border-radius:20px;
-  font-weight:bold;
-  font-size:.95rem;
-  box-shadow:0 3px 8px rgba(0,0,0,.15);
+
+.contador-pill {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 10px;
+  border-radius: 25px;
+  background: var(--cor-primaria); /* azul escuro do site */
+  box-shadow: 0 3px 8px rgba(0,0,0,.15);
 }
+.contador-pill img {
+  vertical-align: middle;
+}
+
 
 .logo {
   height: 50px;   /* ajusta a altura do logo */
