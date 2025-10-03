@@ -238,7 +238,8 @@
                     });
                     if (!r1.ok) throw new Error('HTTP ' + r1.status);
                     const d1 = await r1.json();
-                    wrap.innerHTML = '<span class="contador">👁️ Total de visitas: ' + d1.value + '</span>';
+                    wrap.innerHTML = '<span class="contador">👥 Visitas: ' + d1.value + '</span>';
+
                 } catch (e1) {
                     // tenta /hit (alguns bloqueadores deixam)
                     try {
