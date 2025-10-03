@@ -205,17 +205,46 @@
 
 
 
-    <footer>
-        <p>&copy; 2025 - Todos os direitos reservados. Perícia Digital com ética e excelência.</p>
+  <footer>
+  <p>&copy; 2025 - Todos os direitos reservados. Perícia Digital com ética e excelência.</p>
 
-        <div class="contador-pill">
-            <img alt="Contador de visitas"
-                src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=periciadigitalprofissional.com.br&count_bg=%23f9aa33&title_bg=%23202833&title=Visitas&edge_flat=false"
-                height="28">
-        </div>
+  <!-- Contador -->
+  <div id="contador-wrap" style="margin-top:12px; text-align:center;">
+    <img id="contador-img" alt="contador de visitas" style="vertical-align:middle;">
+  </div>
+</footer>
 
+<script>
+(function () {
+  const img = document.getElementById('contador-img');
 
-    </footer>
+  // URL do badge principal (Seeyoufarm)
+  img.src =
+    'https://hits.seeyoufarm.com/api/count/incr/badge.svg'
+    + '?url=periciadigitalprofissional.com.br'
+    + '&count_bg=%23f9aa33'
+    + '&title_bg=%23202833'
+    + '&title=Visitas'
+    + '&edge_flat=false';
+  img.height = 28;
+
+  // Se a imagem não carregar, usa fallback com CountAPI em texto
+  img.onerror = async function () {
+    try {
+      const resp = await fetch('https://api.countapi.xyz/update/periciadigitalprofissional.com.br/visitas?amount=1', {
+        headers: { 'Accept': 'application/json' }, cache: 'no-store'
+      });
+      const data = await resp.json();
+      document.getElementById('contador-wrap').innerHTML =
+        '<span class="contador">👁️ Total de visitas: ' + data.value + '</span>';
+    } catch (e) {
+      document.getElementById('contador-wrap').innerHTML =
+        '<span class="contador">contador indisponível</span>';
+    }
+  };
+})();
+</script>
+
 
 
 
