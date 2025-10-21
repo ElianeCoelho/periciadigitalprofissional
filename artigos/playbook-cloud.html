@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playbook de Resposta a Incidentes em Cloud — PDP</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <meta name="description" content="Boas práticas de resposta a incidentes em nuvem aplicadas na residência RIF." />
+</head>
+<body>
+  <header>
+    <h1><img src="/imagens/logo.png" alt="Logo Perícia Digital" class="logo" /></h1>
+    <nav>
+      <a href="/">Início</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main style="max-width:900px;margin:auto;padding:28px;">
+    <a href="/blog.html" class="btn-leia" style="text-decoration:none;">← Voltar ao Blog</a>
+    <h1 style="margin-top:16px;">Playbook de Resposta a Incidentes em Ambientes Cloud</h1>
+    <p style="color:#666;margin-top:4px;">Publicado por Eliane Coelho • 2025-10-03</p>
+
+    <hr style="border:none;border-top:1px solid #e9eef5;margin:18px 0;" />
+
+    <h3>Resumo</h3>
+    <p>Como estruturar um playbook alinhado ao NIST SP 800-61 e ISO 27035, com foco em evidências e cadeia de custódia.</p>
+
+    <h3>1) Preparação</h3>
+    <ul>
+      <li>Inventário de contas, regiões e serviços críticos.</li>
+      <li>Logs imutáveis (CloudTrail/Lake) + retenção.</li>
+      <li>Runbooks para isolar recursos e snapshots forenses.</li>
+    </ul>
+
+    <h3>2) Detecção & Análise</h3>
+    <p>Correlações com MITRE ATT&CK (TTPs), timeline, hashing e preservação de artefatos.</p>
+
+    <h3>3) Contenção, Erradicação e Recuperação</h3>
+    <p>Quarentena de instâncias, rotação de credenciais, hardening e verificação de IOC pós-incidente.</p>
+
+    <h3>Referências</h3>
+    <ul>
+      <li>NIST SP 800-61r2 – Computer Security Incident Handling Guide.</li>
+      <li>ISO/IEC 27035 – Information security incident management.</li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Todos os direitos reservados. Perícia Digital com ética e excelência.</p>
+  </footer>
+</body>
+</html>
