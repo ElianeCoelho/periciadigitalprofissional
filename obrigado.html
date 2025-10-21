@@ -5,8 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mensagem Enviada</title>
   <link rel="stylesheet" href="styles.css">
+<script>
+  (function () {
+    const ok = sessionStorage.getItem('contato_ok') === '1';
+    const expected = sessionStorage.getItem('contato_nonce') || '';
+    const params = new URLSearchParams(location.search);
+    const got = params.get('t') || '';
+
+    // valida: precisa da flag e do nonce batendo
+    if (!(ok && expected && got && expected === got)) {
+      // Acesso direto? Volta pro formulário
+      window.location.replace('/#contato'); // ou '/index.html#contato'
+      return;
+    }
+
+    // Consome a flag para não reabrir após refresh
+    sessionStorage.removeItem('contato_ok');
+    sessionStorage.removeItem('contato_nonce');
+  })();
+</script>
+
+
+
 </head>
 <body class="obrigado-bg">
+
+
   <div class="caixa-obrigado">
     <h1 class="titulo-obrigado">Obrigada!</h1>
     <p class="texto-obrigado">Sua mensagem foi enviada com sucesso.<br>Em breve entrarei em contato.</p>

@@ -147,59 +147,63 @@
         <p>Disponível para consultas e esclarecimentos técnicos. Envie sua mensagem:</p>
 
 
-        <form action="https://formsubmit.co/periciadigitalprofissional@gmail.com" method="POST">
-            <!-- Campos visíveis -->
-            <input type="email" name="email" placeholder="Seu e-mail" required
-                style="width: 100%; padding: 10px; margin: 10px 0;"><br>
-            <textarea name="message" placeholder="Sua mensagem" required
-                style="width: 100%; padding: 10px; height: 100px;"></textarea><br>
+      
+<form id="formulario-contato" action="https://formsubmit.co/periciadigitalprofissional@gmail.com" method="POST">
+  <!-- Campos visíveis -->
+  <input type="email" name="email" placeholder="Seu e-mail" required
+         style="width: 100%; padding: 10px; margin: 10px 0;"><br>
+  <textarea name="message" placeholder="Sua mensagem" required
+            style="width: 100%; padding: 10px; height: 100px;"></textarea><br>
 
-            <!-- Configurações do FormSubmit -->
-            <input type="hidden" name="_subject" value="Nova mensagem do site">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://SEU-DOMINIO/obrigado.html">
+  <!-- Configurações do FormSubmit -->
+  <input type="hidden" name="_subject" value="Nova mensagem do site">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
 
-            <!-- Honeypot anti-spam (não remova) -->
-            <input type="text" name="_honey" style="display:none">
+  <!-- _next será preenchido via JS com um nonce -->
+  <input type="hidden" id="_next" name="_next" value="">
 
-            <button type="submit"
-                style="background-color: var(--cor-destaque); color: white; padding: 10px 20px; border: none; border-radius: 5px;">
-                Enviar
-            </button>
-        </form>
+  <!-- Honeypot anti-spam -->
+  <input type="text" name="_honey" style="display:none">
+
+  <button type="submit"
+          style="background-color: var(--cor-destaque); color: white; padding: 10px 20px; border: none; border-radius: 5px;">
+    Enviar
+  </button>
+</form>
+
+<p id="mensagem-retorno" style="margin-top: 15px; font-weight: bold;"></p>
+
+<script>
+  (function () {
+    const form = document.getElementById('formulario-contato');
+    const nextInput = document.getElementById('_next');
+
+    if (!form || !nextInput) return;
+
+    // gera um nonce simples por envio
+    function nonce() {
+      return Math.random().toString(36).slice(2) + Date.now().toString(36);
+    }
+
+    form.addEventListener('submit', function () {
+      // Flag de sessão dizendo que veio de envio real
+      sessionStorage.setItem('contato_ok', '1');
+
+      // Nonce para checagem adicional na obrigado.html
+      const n = nonce();
+      sessionStorage.setItem('contato_nonce', n);
+
+      // Preenche o _next com a URL absoluta + nonce
+      const base = 'https://periciadigitalprofissional.com.br/obrigado.html';
+      nextInput.value = base + '?t=' + encodeURIComponent(n);
+
+      // Deixe o submit seguir normalmente (SEM preventDefault)
+    });
+  })();
+</script>
 
 
-
-        <p id="mensagem-retorno" style="margin-top: 15px; font-weight: bold;"></p>
-
-        <script>
-            const form = document.getElementById('formulario-contato');
-
-            form.addEventListener('submit', async function (e) {
-                e.preventDefault();
-                const dados = new FormData(form);
-
-                try {
-                    const resposta = await fetch(form.action, {
-                        method: form.method,
-                        body: dados,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
-                    if (resposta.ok) {
-                        // Redireciona para a página de obrigado
-                        window.location.href = "obrigado.html";
-                    } else {
-                        alert('Erro ao enviar a mensagem. Tente novamente mais tarde.');
-                    }
-                } catch (erro) {
-                    alert('Erro de conexão. Verifique sua internet.');
-                }
-            });
-        </script>
 
     </section>
 
